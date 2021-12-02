@@ -27,7 +27,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login Page | PHP Login and logout example with session</title>
+<title>3x03 Practical </title>
 <link rel="stylesheet" href="style.css">
 </head>
 
