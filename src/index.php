@@ -34,7 +34,7 @@
 <body>
 	
 	<div class="container">
-		<h1>PHP Login and Logout with Session</h1>
+		<h1>Practical Test</h1>
 		<?php 
 			if(isset($errorMsg))
 			{
@@ -43,27 +43,14 @@
 				echo "</div>";
 				unset($errorMsg);
 			}
-			
-			if(isset($_GET['logout']))
-			{
-				echo "<div class='success-msg'>";
-				echo "You have successfully logout";
-				echo "</div>";
-			}
 		?>
 		<form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
-			<div class="field-container">
-				<label>Email</label>
-				<input type="email" name="email" required placeholder="Enter Your Email">
-			</div>
-			<div class="field-container">
-				<label>Password</label>
-				<input type="password" name="password" required placeholder="Enter Your Password">
-			</div>
-			<div class="field-container">
-				<button type="submit" name="submit">Submit</button>
-			</div>
-			
+			<table>
+				<tr>
+					<td><input type="text" name="k" value="<?php echo isset($_GET['k']) ? $_GET['k'] : ''; ?>" placeholder="Enter your search keywords" /></td>
+					<td><input type="submit" name="" value="Search" /></td>
+				</tr>
+			</table>
 		</form>
 	</div>
 </body>
