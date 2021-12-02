@@ -5,22 +5,15 @@
 	{
 		if((isset($_POST['email']) && $_POST['email'] !='') && (isset($_POST['password']) && $_POST['password'] !=''))
 		{
-			$email = trim($_POST['email']);
-			$password = trim($_POST['password']);
-			
-			if($email == "user@example.com")
-			{	
-				if($password == "password1234")
-				{
-					$_SESSION['user_id'] = $email;
-					
-					header('location:dashboard.php');
-					exit;
-					
+				if (strpos($_POST['Search'],'<script>') !== false) { // attack
+		
+				  $_POST['Search'] ="";
 				}
-			}
-			$errorMsg = "Login failed";
-		}
+				else{
+					$_SESSION['Search'] =  $_POST['Search'];
+					header('location:dashboard.php');
+				 exit;
+				}
 	}
 ?>
 
@@ -48,7 +41,7 @@
 			<table>
 				<tr>
 					<td><input type="text" name="k" value="<?php echo isset($_GET['k']) ? $_GET['k'] : ''; ?>" placeholder="Enter your search keywords" /></td>
-					<td><input type="submit" name="" value="Search" /></td>
+					<td><input type="submit" name="" value="search" /></td>
 				</tr>
 			</table>
 		</form>
