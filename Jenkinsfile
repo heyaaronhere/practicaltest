@@ -2,15 +2,15 @@ pipeline {
 	agent any
 	stages {
 		stage('Code Quality Check via SonarQube') { 
-           	steps { 
-               	script { 
-                	def scannerHome = tool 'SonarQube'; 
-                  		withSonarQubeEnv('SonarQube') { 
-                   		sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=OWSAP -Dsonar.sources=." 
-                   	} 
-               	} 
-           	} 
-        } 
+                     steps { 
+                       script { 
+                       def scannerHome = tool 'SonarQube'; 
+                         withSonarQubeEnv('SonarQube') { 
+                         sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=OWSAP -Dsonar.sources=." 
+                      } 
+                    } 
+                 } 
+               } 
 	
 		stage('Integration UI Test') {
 			parallel {
